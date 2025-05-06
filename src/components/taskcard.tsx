@@ -5,10 +5,14 @@ export default function TaskCard({
     title,
     description,
     className,
+    onEdit,
+    onDelete,
 }: {
     title: string;
     description?: string;
     className?: string;
+    onEdit?: () => void;
+    onDelete?: () => void;
 }) {
     return (
         <Card
@@ -23,10 +27,10 @@ export default function TaskCard({
                     <h2 className="text-xl font-bold">{title}</h2>
                 </Container>
                 <Container className="flex gap-4">
-                    <button className="text-gray-500 hover:text-gray-700 transition">
+                    <button onClick={onEdit} className="text-gray-500 hover:text-gray-700 transition">
                         <Pencil className="w-4 h-4" />
                     </button>
-                    <button className="text-gray-500 hover:text-gray-700 transition">
+                    <button onClick={onDelete} className="text-gray-500 hover:text-gray-700 transition">
                         <Trash className="w-4 h-4" />
                     </button>
                 </Container>
